@@ -13,23 +13,27 @@
         <div class="row gy-5">
             <div class="col-md-4 col-xl-3 order-1 order-md-0 text-center text-md-start">
                 <h2 class="mb-3 text-5 text-white text-uppercase">Address</h2>
-                <p class="text-3 text-light mb-4">H - 248, R - 08,<br>
-                    Phaze - 2, Sonadanga.<br>
-                    Khulna - 9100</p>
+                <p class="text-3 text-light mb-4">
+{{--                    H - 248, R - 08, <br>--}}
+{{--                    Phaze - 2, Sonadanga. <br>--}}
+{{--                    Khulna - 9100 </p>--}}
+
+                    {!! $user?->address !!}
+
                 <p class="text-3 text-light mb-1">
-              <span class="text-primary text-4 me-2">
-                <i class="fas fa-phone"></i>
-              </span>(880) 1728692643
+                  <span class="text-primary text-4 me-2">
+                    <i class="fas fa-phone"></i>
+                  </span> {{ $user?->phone }}
                 </p>
                 <p class="text-3 text-light mb-1">
               <span class="text-primary text-4 me-2">
                 <i class="fas fa-fax"></i>
-              </span>(880) 9638555680
+              </span> {{ $user?->telephone }}
                 </p>
                 <p class="text-3 text-light mb-4">
               <span class="text-primary text-4 me-2">
                 <i class="fas fa-envelope"></i>
-              </span>mdsherazhowlader@gmail.com
+              </span> {{ $user?->email }}
                 </p>
 
                 <h2 class="mb-3 text-5 text-white text-uppercase">Follow Me</h2>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -18,7 +19,9 @@ class MailController extends Controller
             'body'      => $request->form_message,
         ];
 
-        Mail::to('mdsherazhowlader@gmail.com')->send(new ContactMail($data));
+        $setting    = Setting::first();
+
+        Mail::to($setting->mail_to)->send(new ContactMail($data));
         return redirect()->back();
     }
 }

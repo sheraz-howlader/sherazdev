@@ -47,7 +47,7 @@
 
 <div id="main-wrapper">
     <!-- Start::Header & Sidebar -->
-    @include('frontend.sidebar')
+    @include('frontend.layouts.sidebar')
     <!-- End::Header & Sidebar-->
 
     <!-- Start::Content -->
@@ -56,53 +56,59 @@
         <section id="home">
             <div class="hero-wrap">
                 <div class="hero-mask opacity-8 bg-dark"></div>
-                <div class="hero-bg parallax"
-                     style="background-image:url('{{ asset('frontend/') }}/images/intro-bg.jpg');"></div>
+
+                <div class="hero-bg parallax" style="background-image:url({{ asset($setting?->thumbnail) }})"></div>
+
                 <div class="hero-content section d-flex min-vh-100">
                     <div class="container my-auto">
                         <div class="row">
                             <div class="col-12 text-center">
                                 <div class="typed-strings">
-                                    <p>I'm Sheraz Howlader</p>
-                                    <p>I'm a Full Stack Developer.</p>
+                                    <p>I'm {{ $user?->full_name }}</p>
+                                    <p>I'm a {{ $setting?->title }}.</p>
                                 </div>
                                 <p class="text-7 fw-500 text-white mb-2 mb-md-3">Welcome</p>
                                 <h2 class="text-16 fw-600 text-white mb-2 mb-md-3"><span class="typed"></span></h2>
                                 <p class="text-5 text-light mb-4"> Based in Bangladesh. </p>
                                 <a href="#contact"
-                                   class="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2">Hire
-                                    Me</a>
+                                   class="btn btn-outline-primary rounded-pill shadow-none smooth-scroll mt-2">
+                                    Hire Me
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <a href="#about" class="scroll-down-arrow text-white smooth-scroll"><span class="animated"><i
-                                class="fa fa-chevron-down"></i></span></a></div>
+                    <a href="#about" class="scroll-down-arrow text-white smooth-scroll">
+                        <span class="animated">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </a>
+                </div>
             </div>
         </section>
         <!-- End::Intro -->
 
         <!-- Start::About -->
-        @include('frontend.about')
+        @include('frontend.layouts.about')
         <!-- End::About -->
 
         <!-- Start::Services -->
-        @include('frontend.service')
+        @include('frontend.layouts.service')
         <!-- End::Services -->
 
         <!-- Start::Education -->
-        @include('frontend.education')
+        @include('frontend.layouts.education')
         <!-- End::Education -->
 
         <!-- Start::Portfolio -->
-        @include('frontend.portfolio')
+        @include('frontend.layouts.portfolio')
         <!-- End::Portfolio -->
 
         <!-- Start::Testimonial -->
-        @include('frontend.testimonial')
+        @include('frontend.layouts.testimonial')
         <!-- End::Testimonial -->
 
         <!-- Start::Contact -->
-        @include('frontend.contact')
+        @include('frontend.layouts.contact')
         <!-- End::Contact -->
     </div>
     <!-- End::Content -->
@@ -112,7 +118,8 @@
         <div class="container px-lg-5">
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center text-lg-start">
-                    <p class="mb-lg-0">Copyright © 2023 <a href="#" class="fw-500">sherazdev</a>. All Rights Reserved.
+                    <p class="mb-lg-0">Copyright © {{ date('Y') }}
+                        <a href="https://github.com/sherazHowlader" class="fw-500" target="_blank">{{ env('APP_NAME') }}</a>. All Rights Reserved.
                     </p>
                 </div>
                 <div class="col-lg-6">
@@ -140,11 +147,11 @@
 <!-- End::Back to Top-->
 
 <!-- Start::Terms & Policy Modal -->
-@include('frontend.privacy-policy')
+@include('frontend.layouts.privacy-policy')
 <!-- End::Terms & Policy Modal -->
 
 <!-- Start::Disclaimer Modal -->
-@include('frontend.disclaimer')
+@include('frontend.layouts.disclaimer')
 <!-- End::Disclaimer Modal -->
 
 <!-- JavaScript -->
@@ -172,7 +179,7 @@
 <script src="{{ asset('frontend/') }}/js/switcher.min.js"></script>
 <!-- Custom Script -->
 <script src="{{ asset('frontend/') }}/js/theme.js"></script>
-
+@stack('script')
 @routes
 </body>
 </html>

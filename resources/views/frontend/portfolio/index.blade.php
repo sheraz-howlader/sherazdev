@@ -1,27 +1,47 @@
 <div class="container ajax-container bg-dark-1">
-    <h2 class="text-6 font-weight-600 text-center text-white mb-4">Project Title 1</h2>
+    <h2 class="text-6 font-weight-600 text-center text-white mb-4"> {{ $portfolio->title }} </h2>
     <div class="row g-4">
         <div class="col-sm-7">
             <div class="owl-carousel owl-theme owl-light single-slideshow" data-autoplay="true" data-loop="true"
                 data-nav="true" data-items="1">
-                <div class="item"> <img class="img-fluid" alt="" src="images/projects/project-1.jpg"> </div>
-                <div class="item"> <img class="img-fluid" alt="" src="images/projects/project-5.jpg"> </div>
+                @foreach($portfolio->images as $image)
+                    <div class="item">
+                        <img class="img-fluid" alt="{{ $portfolio->title }}" src="{{ asset($image->image) }}">
+                    </div>
+                @endforeach
             </div>
         </div>
+
         <div class="col-sm-5">
-            <h4 class="text-4 font-weight-600 text-white">Project Info:</h4>
-            <p class="text-white-50">Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea
-                essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent
-                possim iriure.</p>
+            <h4 class="text-4 font-weight-600 text-white"> Project Info: </h4>
+
+            <p class="text-white-50"> {{ $portfolio->description }} </p>
+
             <h4 class="text-4 font-weight-600 text-white mt-4">Project Details:</h4>
+
             <ul class="list-style-2 list-style-light text-white-50">
-                <li><span class="text-light font-weight-600 me-2">Client:</span>Ruby Clinton</li>
-                <li><span class="text-light font-weight-600 me-2">Industry:</span>Art & Design</li>
-                <li><span class="text-light font-weight-600 me-2">Technologies:</span>iOS, HTML5, CSS3, PHP, Java</li>
-                <li><span class="text-light font-weight-600 me-2">Date:</span>July 16, 2019</li>
-                <li><span class="text-light font-weight-600 me-2">URL:</span><a href="#"
-                        target="_blank">www.example.com</a></li>
+                <li @class(['d-none' => !$portfolio->client_name])>
+                    <span class="text-light font-weight-600 me-2">Client:</span>
+                    {{ $portfolio->client_name }}
+                </li>
+                <li @class(['d-none' => !$portfolio->industry_name])>
+                    <span class="text-light font-weight-600 me-2">Industry:</span>
+                    {{ $portfolio->industry_name }}
+                </li>
+                <li @class(['d-none' => !$portfolio->technologies])>
+                    <span class="text-light font-weight-600 me-2">Technologies:</span>
+                    {{ $portfolio->technologies }}
+                </li>
+                <li @class(['d-none' => !$portfolio->delivery_date])>
+                    <span class="text-light font-weight-600 me-2">Date:</span>
+                    {{ $portfolio->delivery_date }}
+                </li>
+                <li @class(['d-none' => !$portfolio->url])>
+                    <span class="text-light font-weight-600 me-2">URL:</span>
+                    <a href="{{ $portfolio->url }}" target="_blank"> {{ $portfolio->url }} </a>
+                </li>
             </ul>
+
             <div class="row no-gutters align-items-center">
                 <div class="col-auto text-light font-weight-600">Share: </div>
                 <div class="col-auto">
@@ -61,5 +81,4 @@
             </div>
         </div>
     </div>
-
 </div>

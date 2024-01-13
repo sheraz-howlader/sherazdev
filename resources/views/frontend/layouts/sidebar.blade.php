@@ -6,10 +6,10 @@
             <!-- Logo -->
             <a href="index.html" class="mb-lg-auto mt-lg-4">
 			<span class="bg-dark-2 rounded-pill p-2 mb-lg-1 d-none d-lg-inline-block">
-				<img class="img-fluid rounded-pill d-block" src="{{ asset('frontend/') }}/images/profile.jpg"
-                     title="I'm sheraz howlader" alt="">
+				<img class="img-fluid rounded-pill d-block" src="{{ asset($user?->profile_picture) }}"
+                     title="{{ $user?->full_name }}" alt="{{ $user?->full_name }}">
 			</span>
-                <h1 class="text-5 text-white text-center mb-0 d-lg-block"> Sheraz Howlader </h1>
+                <h1 class="text-5 text-white text-center mb-0 d-lg-block"> {{ $user?->full_name }} </h1>
             </a>
             <!-- Logo End -->
 

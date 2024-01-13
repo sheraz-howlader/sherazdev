@@ -10,4 +10,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', HomeController::class);
+Route::get('portfolio/{id}', [HomeController::class, 'portfolioShow'])->name('home.portfolio');
 Route::post('mail/send', [MailController::class, 'sendToAdmin'])->name('mail.send');

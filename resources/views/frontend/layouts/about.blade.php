@@ -23,7 +23,7 @@
                         <li><span class="fw-600 me-2">Name:</span> {{ $user?->full_name }} </li>
                         <li><span class="fw-600 me-2">Email:</span><a href="mailto:{{ $user?->email }}"> {{ $user?->email }} </a>
                         </li>
-                        <li><span class="fw-600 me-2">Age:</span> {{ $user?->age }} </li>
+                        <li><span class="fw-600 me-2">Age:</span> {{ $user?->age() }} </li>
                         <li class="border-0"><span class="fw-600 me-2">From:</span>Bangladesh</li>
                     </ul>
 

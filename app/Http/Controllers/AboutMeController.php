@@ -7,38 +7,19 @@ use Illuminate\Http\Request;
 
 class AboutMeController extends Controller
 {
-    public function index()
-    {
-        return view('backend.about-me');
-    }
-
     public function create()
     {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show(AboutMe $aboutMe)
-    {
-        //
-    }
-
-    public function edit(AboutMe $aboutMe)
-    {
-        //
+        $about = AboutMe::first();
+        return view('backend.about-me', compact('about'));
     }
 
     public function update(Request $request, AboutMe $aboutMe)
     {
-        //
-    }
+        $aboutMe->update([
+           'title'          =>  $request->title,
+           'description'    =>  $request->description,
+        ]);
 
-    public function destroy(AboutMe $aboutMe)
-    {
-        //
+        return back();
     }
 }

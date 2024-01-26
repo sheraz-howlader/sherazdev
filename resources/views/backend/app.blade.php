@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title> sherazdev </title>
+    <title> {{ config('app.name')  }} </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -54,7 +54,7 @@
             <div class="col-sm-6 my-1">
                 <p class="m-0"> Made with love
                     <i class="fas fa-heart text-danger"></i>
-                    <a href="https://sherazdev.com" target="_blank"> Sheraz Howlader </a>
+                    <a href="https://sherazdev.com" target="_blank"> {{ config('app.name') }} </a>
                 </p>
             </div>
         </div>

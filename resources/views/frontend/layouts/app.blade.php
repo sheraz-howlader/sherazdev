@@ -119,7 +119,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 text-center text-lg-start">
                     <p class="mb-lg-0">Copyright © {{ date('Y') }}
-                        <a href="https://github.com/sherazHowlader" class="fw-500" target="_blank">{{ env('APP_NAME') }}</a>. All Rights Reserved.
+                        <a href="https://github.com/sherazHowlader" class="fw-500" target="_blank">{{ config('app.name')  }}</a>. All Rights Reserved.
                     </p>
                 </div>
                 <div class="col-lg-6">

@@ -16,7 +16,7 @@ class MailController extends Controller
         $setting    = Setting::first();
 
         $data = [
-            'subject'   => 'sherazdev::Contact Form',
+            'subject'   => config('app.name') . '::Contact Form',
             'template'  => 'emails.contact',
             'name'      => $request->name,
             'email'     => $request->email,

@@ -1,7 +1,8 @@
 <header class="pc-header">
     <div class="m-header">
-        <a href="./dashboard/index.html" class="b-brand text-primary">
-            <img src="{{ asset('backend/images/logo-white.svg') }}" alt="logo image" class="logo-lg">
+        <a href="" class="b-brand text-white">
+{{--            <img src="{{ asset('backend/images/logo-white.svg') }}" alt="logo image" class="logo-lg">--}}
+            <span class="logo-lg"> {{ config('app.name')  }} </span>
         </a>
     </div>
     <div class="header-wrapper">

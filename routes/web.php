@@ -13,7 +13,7 @@ Route::get('portfolio/{id}', [HomeController::class, 'portfolioShow'])->name('ho
 Route::post('mail/send', [MailController::class, 'sendToAdmin'])->name('mail.send');
 
 Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'portal'], function (){
-    Route::resource('about-me', AboutMeController::class);
+    Route::resource('about-me', AboutMeController::class)->only('create', 'update');
     Route::resource('service', ServiceController::class);
 });
 
@@ -27,6 +27,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        // return view('dashboard');
+        return redirect()->route( 'admin.about-me.create');
     })->name('dashboard');
 });

@@ -4,7 +4,7 @@
         <div class="container-fluid position-relative h-100 flex-lg-column ps-3 px-lg-3 pt-lg-3 pb-lg-2">
 
             <!-- Logo -->
-            <a href="index.html" class="mb-lg-auto mt-lg-4">
+            <a href="{{ route('public.home') }}" class="mb-lg-auto mt-lg-4">
 			<span class="bg-dark-2 rounded-pill p-2 mb-lg-1 d-none d-lg-inline-block">
 				<img class="img-fluid rounded-pill d-block" src="{{ asset($user?->profile_picture) }}"
                      title="{{ $user?->full_name }}" alt="{{ $user?->full_name }}">

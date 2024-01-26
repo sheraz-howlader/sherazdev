@@ -13,6 +13,7 @@ class UserSeeder extends Seeder
            'role_id'        => 1,
            'first_name'     => 'Sheraz',
            'last_name'      => 'Howlader',
+           'image'          => 'frontend/images/profile.jpg',
            'dob'            => "22-12-1997",
            'phone'          => '+8801728692643',
            'telephone'      => '+8809638555680',

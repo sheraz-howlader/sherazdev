@@ -1,6 +1,8 @@
 <x-mail::message>
 # Dear Admin,
 
+{{ $data['class'] }} <br>
+
 <x-mail::panel>
 {{ $data['message'] }}
 </x-mail::panel>

@@ -30099,7 +30099,7 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select[data-
 }
 
 .auth-main.v2 {
-    background: url(../images/authentication/img-auth-bg.jpg);
+    background: url(../backend/images/authentication/img-auth-bg.jpg);
     background-size: cover;
     background-position: center
 }

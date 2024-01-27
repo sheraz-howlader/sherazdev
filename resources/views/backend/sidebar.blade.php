@@ -26,13 +26,13 @@
                             <a href="{{ route('admin.about-me.create') }}" class="pc-link"> About Me </a>
                         </li>
 
-                        <li class="pc-item pc-hasmenu {{ request()->is('service/*') ? 'pc-trigger' : '' }}">
+                        <li class="pc-item pc-hasmenu {{ request()->is('portal/service*') ? 'pc-trigger' : '' }}">
                             <a href="#" class="pc-link"> Service
                                 <span class="pc-arrow">
                                     <i data-feather="chevron-right"></i>
                                 </span>
                             </a>
-                            <ul class="pc-submenu active" style="display: {{ request()->is('service/*') ? 'block' : 'none' }};" >
+                            <ul class="pc-submenu active" style="display: {{ request()->is('portal/service/*') ? 'block' : 'none' }};" >
                                 <li class="pc-item">
                                     <a class="pc-link" href="{{ route('admin.service.create') }}"> Add </a>
                                 </li>

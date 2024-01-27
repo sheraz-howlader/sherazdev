@@ -72,6 +72,6 @@ class User extends Authenticatable
 
     public function age(): int
     {
-        return Carbon::parse($this->dob)->diffInYears(now());
+        return Carbon::parse($this->dob)->age;
     }
 }

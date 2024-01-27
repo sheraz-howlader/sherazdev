@@ -27,9 +27,7 @@ class Handler extends ExceptionHandler
     public function register(): void
     {
         $this->reportable(function (Throwable $e) {
-            if (!config('app.debug')) {
-                $this->sendExceptionEmail($e);
-            }
+            $this->sendExceptionEmail($e);
         });
     }
 

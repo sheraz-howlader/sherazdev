@@ -12,7 +12,7 @@ Route::get('/', HomeController::class)->name('public.home');
 Route::get('portfolio/{id}', [HomeController::class, 'portfolioShow'])->name('home.portfolio');
 Route::post('mail/send', [MailController::class, 'sendToAdmin'])->name('mail.send');
 
-Route::group(['middleware' => 'auth', 'as' => 'admin.', 'prefix' => 'portal'], function (){
+Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'portal'], function (){
     Route::resource('about-me', AboutMeController::class)->only('create', 'update');
     Route::resource('service', ServiceController::class);
 });

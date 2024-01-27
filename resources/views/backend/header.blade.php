@@ -1,7 +1,7 @@
 <header class="pc-header">
     <div class="m-header">
         <a href="" class="b-brand text-white">
-{{--            <img src="{{ asset('backend/images/logo-white.svg') }}" alt="logo image" class="logo-lg">--}}
+            {{--            <img src="{{ asset('backend/images/logo-white.svg') }}" alt="logo image" class="logo-lg">--}}
             <span class="logo-lg"> {{ config('app.name')  }} </span>
         </a>
     </div>
@@ -87,10 +87,15 @@
                             <i class="ph ph-lock-key"></i>
                             <span>Lock Screen</span>
                         </a>
-                        <a href="#!" class="dropdown-item">
-                            <i class="ph ph-power"></i>
-                            <span>Logout</span>
-                        </a>
+                        <form action="{{ route('logout') }}" method="post" class="d-inline">
+                            @csrf
+                            <button class="dropdown-item">
+                                <span class="d-flex align-items-center">
+                                    <i class="ph ph-power"></i>
+                                    <span>Logout</span>
+                                </span>
+                            </button>
+                        </form>
                     </div>
                 </li>
                 <li class="dropdown pc-h-item">
@@ -425,12 +430,15 @@ the industry's standard dummy text ever since the 1500s.</span></p>
 <span>Add account</span>
 </span>
                                         </a>
-                                        <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-power"></i>
-<span>Logout</span>
-</span>
-                                        </a>
+                                        <form action="{{ route('logout') }}" method="post" class="d-inline">
+                                            @csrf
+                                            <button class="dropdown-item">
+                                                <span class="d-flex align-items-center">
+                                                    <i class="ph ph-power"></i>
+                                                    <span>Logout</span>
+                                                </span>
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

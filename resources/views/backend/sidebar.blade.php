@@ -12,7 +12,7 @@
                 </li>
 
                 <li class="pc-item pc-hasmenu pc-trigger active">
-                    <a href="" class="pc-link">
+                    <a href="#" class="pc-link">
                         <span class="pc-micon">
                             <i class="ph ph-gauge"></i>
                         </span>

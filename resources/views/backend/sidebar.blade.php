@@ -51,9 +51,23 @@
                         <li class="pc-item">
                             <a class="pc-link" href="./dashboard/index-affiliate.html"> Skill </a>
                         </li>
-                        <li class="pc-item">
-                            <a class="pc-link" href="./dashboard/index-affiliate.html"> Portfolio </a>
+
+                        <li class="pc-item pc-hasmenu {{ request()->is('portal/portfolio*') ? 'pc-trigger' : '' }}">
+                            <a href="#" class="pc-link"> Portfolio
+                                <span class="pc-arrow">
+                                    <i data-feather="chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="pc-submenu active" style="display: {{ request()->is('portal/portfolio/*') ? 'block' : 'none' }};" >
+                                <li class="pc-item">
+                                    <a class="pc-link" href="{{ route('admin.portfolio.create') }}"> Add </a>
+                                </li>
+                                <li class="pc-item {{ Route::is('admin.portfolio.edit') ? 'active' : '' }}">
+                                    <a class="pc-link" href="{{ route('admin.portfolio.index') }}"> List </a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li class="pc-item">
                             <a class="pc-link" href="./dashboard/index-affiliate.html"> Testimonial </a>
                         </li>

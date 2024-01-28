@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Portfolio extends Model
 {
-    use HasFactory;
+    protected $guarded = ['id'];
 
     public function images(): HasMany
     {

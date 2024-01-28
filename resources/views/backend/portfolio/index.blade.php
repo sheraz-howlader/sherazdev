@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@push('section_name', 'Services')
+@push('section_name', 'Portfolio')
 @push('action_name', 'List')
 
 @section('contents')
@@ -13,27 +13,29 @@
                             <thead>
                             <tr>
                                 <th>#</th>
+                                <th> Category </th>
                                 <th> Title </th>
-                                <th> Description </th>
+                                <th> URL </th>
                                 <th> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($services as $service)
+                                @foreach($portfolios as $portfolio)
                                 <tr>
                                     <td> {{ $loop->iteration }} </td>
+                                    <td> {{ $portfolio->category_id }} </td>
                                     <td>
-                                        <i class="{{ $service->icon }} mx-1"></i>
-                                        {{ $service->title }}
+                                        <img class="img-thumbnail" src="{{ asset($portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" width="50">
+                                        {{ $portfolio->title }}
                                     </td>
-                                    <td> {{ Str::limit($service->description, 50) }} </td>
+                                    <td> <a href="{{ $portfolio->url }}" target="_blank">{{ $portfolio->url }}</a> </td>
                                     <td>
-                                        <a href="{{ route('admin.service.edit', $service->id) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('admin.portfolio.edit', $portfolio->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fas fa-edit"></i>
                                             Edit
                                         </a>
 
-                                        <form action="{{ route('admin.service.destroy', $service->id) }}" method="post" class="d-inline">
+                                        <form action="{{ route('admin.portfolio.destroy', $portfolio->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger btn-sm">

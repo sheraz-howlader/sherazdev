@@ -309,27 +309,25 @@ the industry's standard dummy text ever since the 1500s.</span></p>
                                                      class="wid-50 rounded-circle">
                                             </div>
                                             <div class="flex-grow-1 mx-3">
-                                                <h5 class="mb-0">Carson Darrin</h5>
-                                                <a class="link-primary"
-                                                   href="/cdn-cgi/l/email-protection#c0a3a1b2b3afaeeea4a1b2b2a9ae80a3afadb0a1aeb9eea9af"><span
-                                                        class="__cf_email__"
-                                                        data-cfemail="e3808291908c8dcd878291918a8da3808c8e93828d9acd8a8c">[email&#160;protected]</span></a>
+                                                <h5 class="mb-0"> {{ auth()->user()->full_name }} </h5>
+                                                <a class="link-primary" href="">
+                                                    <span class="__cf_email__"> {{ auth()->user()->email }} </span>
+                                                </a>
                                             </div>
-                                            <span class="badge bg-primary">PRO</span>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-key"></i>
-<span>Change password</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-key"></i>
+                                                <span>Change password</span>
+                                            </span>
                                         </a>
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-envelope-simple"></i>
-<span>Recently mail</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-envelope-simple"></i>
+                                                <span>Recently mail</span>
+                                            </span>
                                             <div class="user-group">
                                                 <img src="{{ asset('backend/images/user/avatar-2.jpg') }}"
                                                      alt="user-image"
@@ -342,53 +340,22 @@ the industry's standard dummy text ever since the 1500s.</span></p>
                                                      class="avtar">
                                             </div>
                                         </a>
-                                        <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-calendar-blank"></i>
-<span>Schedule meetings</span>
-</span>
-                                        </a>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-heart"></i>
-<span>Favorite</span>
-</span>
-                                        </a>
-                                        <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-arrow-circle-down"></i>
-<span>Download</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-arrow-circle-down"></i>
+                                                <span>Download</span>
+                                            </span>
                                             <span class="avtar avtar-xs rounded-circle bg-danger text-white">10</span>
                                         </a>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-globe-hemisphere-west"></i>
-<span>Languages</span>
-</span>
-                                            <span class="flex-shrink-0">
-<select class="form-select bg-transparent form-select-sm border-0 shadow-none">
-<option value="1">English</option>
-<option value="2">Spain</option>
-<option value="3">Arbic</option>
-</select>
-</span>
-                                        </div>
-                                        <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-flag"></i>
-<span>Country</span>
-</span>
-                                        </a>
-                                        <div class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-moon"></i>
-<span>Dark mode</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-moon"></i>
+                                                <span>Dark mode</span>
+                                            </span>
                                             <div class="form-check form-switch form-check-reverse m-0">
                                                 <input class="form-check-input f-18" id="dark-mode" type="checkbox"
                                                        onclick="if (!window.__cfRLUnblockHandlers) return false; dark_mode()"
@@ -398,37 +365,30 @@ the industry's standard dummy text ever since the 1500s.</span></p>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-user-circle"></i>
-<span>Edit profile</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-user-circle"></i>
+                                                <span>Edit profile</span>
+                                            </span>
                                         </a>
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-star text-warning"></i>
-<span>Upgrade account</span>
-<span class="badge bg-light-success border border-success ms-2">NEW</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-bell"></i>
+                                                <span>Notifications</span>
+                                            </span>
                                         </a>
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-bell"></i>
-<span>Notifications</span>
-</span>
-                                        </a>
-                                        <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-gear-six"></i>
-<span>Settings</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-gear-six"></i>
+                                                <span>Settings</span>
+                                            </span>
                                         </a>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#" class="dropdown-item">
-<span class="d-flex align-items-center">
-<i class="ph ph-plus-circle"></i>
-<span>Add account</span>
-</span>
+                                            <span class="d-flex align-items-center">
+                                                <i class="ph ph-plus-circle"></i>
+                                                <span>Add account</span>
+                                            </span>
                                         </a>
                                         <form action="{{ route('logout') }}" method="post" class="d-inline">
                                             @csrf

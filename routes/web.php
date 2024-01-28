@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,6 +16,7 @@ Route::post('mail/send', [MailController::class, 'sendToAdmin'])->name('mail.sen
 Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'portal'], function (){
     Route::resource('about-me', AboutMeController::class)->only('create', 'update');
     Route::resource('service', ServiceController::class);
+    Route::resource('portfolio', PortfolioController::class);
 });
 
 Route::fallback(function () {

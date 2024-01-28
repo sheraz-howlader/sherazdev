@@ -5,13 +5,13 @@ use App\Http\Services\FileUploadService;
 
 class FileHandlerService
 {
-    public static function handleFile($request, $existingFile = null, $path)
+    public static function handleFile($file, $existingFile = null, $path)
     {
-        if ($request->file('file')) {
+        if ($file) {
             if ($existingFile && file_exists($existingFile)) {
                 unlink($existingFile);
             }
-            return FileUploadService::getFile($request, $path);
+            return FileUploadService::getFile($file, $path);
         }
         return $existingFile;
     }

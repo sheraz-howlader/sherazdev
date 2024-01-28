@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('mail_to')->nullable();
             $table->string('mail_from')->nullable();
-            $table->string('title')->nullable();
             $table->string('icon')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
             $table->string('hero_background')->nullable();
-            $table->string('description')->nullable();
+            $table->string('hero_type_writer')->nullable();
             $table->timestamps();
         });
     }

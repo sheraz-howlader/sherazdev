@@ -72,7 +72,7 @@
                             <a class="pc-link" href="./dashboard/index-affiliate.html"> Testimonial </a>
                         </li>
                         <li class="pc-item">
-                            <a class="pc-link" href="./dashboard/index-affiliate.html"> Setting </a>
+                            <a class="pc-link" href="{{ route('admin.setting.create') }}"> Setting </a>
                         </li>
                     </ul>
                 </li>

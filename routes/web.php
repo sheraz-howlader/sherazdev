@@ -3,10 +3,10 @@
 use App\Http\Controllers\AboutMeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingContrller;
 use Illuminate\Support\Facades\Route;
-
 
 
 Route::get('/', HomeController::class)->name('public.home');
@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => '
     Route::resource('about-me', AboutMeController::class)->only('create', 'update');
     Route::resource('service', ServiceController::class);
     Route::resource('portfolio', PortfolioController::class);
+    Route::resource('setting', SettingContrller::class)->only('create', 'update');
 });
 
 Route::fallback(function () {

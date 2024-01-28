@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <title> {{ config('app.name')  }} </title>
+    <title> Admin :: {{ $setting->meta_title }} </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Gradient Able.">
-    <meta name="keywords" content="Bootstrap admin template.">
+    <meta name="description" content="{{ $setting->meta_description }}">
+    <meta name="keywords" content="{{ $setting->meta_keyword }}">
     <meta name="author" content="sherazdev.com">
 
-    <link rel="icon" href="{{ asset('backend/images/favicon.svg') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset($setting->icon) }}" type="image/x-icon">
 
     <link rel="stylesheet" href="{{ asset('backend/css/plugins/jsvectormap.min.css') }}">
 

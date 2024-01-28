@@ -4,9 +4,10 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('frontend/') }}/images/profile.jpg" rel="icon"/>
-    <title> Sheraz Howlader - Full Stack Developer </title>
-    <meta name="description" content="Sheraz Howlader is full stack developer in bangladesh">
+    <link href="{{ asset($setting->icon) }}" rel="icon"/>
+    <title> {{ $setting->meta_title }} </title>
+    <meta name="description" content="{{ $setting->meta_description }}">
+    <meta name="keywords" content="{{ $setting->meta_keyword }}">
     <meta name="author" content="sherazdev.com">
 
     <!-- Web Fonts -->
@@ -65,7 +66,7 @@
                             <div class="col-12 text-center">
                                 <div class="typed-strings">
                                     <p>I'm {{ $user?->full_name }}</p>
-                                    <p>I'm a {{ $setting?->title }}.</p>
+                                    <p>I'm a {{ $setting?->hero_type_writer }}.</p>
                                 </div>
                                 <p class="text-7 fw-500 text-white mb-2 mb-md-3">Welcome</p>
                                 <h2 class="text-16 fw-600 text-white mb-2 mb-md-3"><span class="typed"></span></h2>

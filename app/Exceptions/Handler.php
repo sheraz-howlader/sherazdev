@@ -45,11 +45,13 @@ class Handler extends ExceptionHandler
             $content['route']     = request()?->route()?->getName() ?? 'Not Found';
             $content['method']    = request()->method();
             $content['ip']        = request()->ip();
-            $content['body']      = json_encode(request()->all(), JSON_PRETTY_PRINT);
-            $content['class']     = get_class($exception);
+            $content['input_data']= json_encode(request()->all(), JSON_PRETTY_PRINT);
+            $content['error_type']= get_class($exception);
             $content['file']      = $exception->getFile();
             $content['line']      = $exception->getLine();
-            $content['trace']     = json_encode($exception->getTrace());
+            $content['middlewares'] = json_encode(request()->route()?->gatherMiddleware()) ?? 'Not Found';
+            $content['user_agent'] 	= request()->userAgent();
+            $content['trace']     	= json_encode($exception->getTrace());
 
             $this->emailSend($content);
 

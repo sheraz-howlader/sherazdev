@@ -33,7 +33,7 @@
     <link id="color-switcher" type="text/css" rel="stylesheet" href="#"/>
     <style>
         /*Disable text selection - */
-        main{
+        body{
             -webkit-user-select: none; /* Safari */
             -ms-user-select: none; /* IE 10 and IE 11 */
             user-select: none; /* Standard syntax */

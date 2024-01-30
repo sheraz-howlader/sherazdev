@@ -31,6 +31,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/') }}/css/stylesheet.css"/>
     <!-- Colors Css -->
     <link id="color-switcher" type="text/css" rel="stylesheet" href="#"/>
+    <style>
+        /*Disable text selection - */
+        main{
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+    </style>
 </head>
 
 <body class="side-header" data-bs-spy="scroll" data-bs-target="#header-nav" data-bs-offset="1">
@@ -180,6 +188,43 @@
 <script src="{{ asset('frontend/') }}/js/switcher.min.js"></script>
 <!-- Custom Script -->
 <script src="{{ asset('frontend/') }}/js/theme.js"></script>
+
+<script>
+    @if(!config('app.debug'))
+        // Disable right-click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        // Disable copy, cut & paste
+        document.addEventListener('copy', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('cut', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('paste', function (e) {
+            e.preventDefault();
+        });
+
+
+        // Disable Ctrl+U
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
+        });
+
+        // Disable Ctrl+Shift+I
+        document.addEventListener('keydown', function (e) {
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'I') {
+                e.preventDefault();
+            }
+        });
+    @endif
+</script>
 @stack('script')
 @routes
 </body>

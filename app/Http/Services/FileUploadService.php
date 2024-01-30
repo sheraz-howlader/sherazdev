@@ -8,7 +8,7 @@ class FileUploadService
     {
         $fileExtension = uniqid() . '.' . $file->getClientOriginalExtension();
         $uploadPath = $path;
-        $file->move($uploadPath, $fileExtension);
+        $file->move(public_path($uploadPath), $fileExtension);
 
         return $uploadPath . $fileExtension;
     }

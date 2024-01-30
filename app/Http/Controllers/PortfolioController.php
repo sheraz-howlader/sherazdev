@@ -38,7 +38,7 @@ class PortfolioController extends Controller
         ]);
 
         $path = 'frontend/images/projects/';
-        $file = FileHandlerService::handleFile($request, '', $path);
+        $file = FileHandlerService::handleFile($request->thumbnail, '', $path);
 
         Portfolio::create([
             'category_id'    =>  $request->category_id,
@@ -65,7 +65,7 @@ class PortfolioController extends Controller
         ]);
 
         $path = 'frontend/images/projects/';
-        $file = FileHandlerService::handleFile($request, $portfolio->thumbnail, $path);
+        $file = FileHandlerService::handleFile($request->thumbnail, $portfolio->thumbnail, $path);
 
         $portfolio->update([
            'category_id'    =>  $request->category_id,

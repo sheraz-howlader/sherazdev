@@ -65,7 +65,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label"> Thumbnail </label>
-                            <input class="form-control" type="file" name="file" aria-label="file">
+                            <input class="form-control" type="file" name="thumbnail" aria-label="file">
                         </div>
                         <div class="form-group text-center mb-4">
                             <img class="img-thumbnail" src="{{ asset($portfolio->thumbnail) }}" alt="" width="200">

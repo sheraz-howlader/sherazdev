@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->ipAddress('ip');
             $table->string('country');
+            $table->string('capital');
             $table->string('city');
             $table->string('region');
             $table->string('timezone');

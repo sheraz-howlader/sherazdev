@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeoLocationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,39 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::get('address/{ip}', function () {
-    $agent = $_SERVER["HTTP_USER_AGENT"];
-
-    if (preg_match('/Trident\/\d+/', $agent)) {
-        echo "You're using Internet Explorer";
-    } else if (preg_match('/Edg\/\d+/', $agent)) {
-        echo "You're using Microsoft Edge";
-    } else if (preg_match('/Firefox[\/\s](\d+\.\d+)/', $agent)) {
-        echo "You're using Firefox";
-    } else if (preg_match('/OPR[\/\s](\d+\.\d+)/', $agent)) {
-        echo "You're using Opera";
-    } else if (preg_match('/Chrome[\/\s](\d+\.\d+)/', $agent)) {
-        echo "You're using Chrome";
-    }
-
-
-    echo '<br>';
-    echo 'Your User Agent - ' . $agent;
-    echo '<br>';
-    echo '<br>';
-// ====================================================
-    $ipaddress = file_get_contents("http://ipecho.net/plain");
-    $ipdat = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ipaddress));
-
-    $country = $ipdat->geoplugin_countryName;
-    echo 'Your Country - ' . $country;
-    echo '<br>';
-    echo 'Your Server Address - ' . $_SERVER['SERVER_ADDR'];
-    echo '<br>';
-    echo 'Your Remote Address - ' . $_SERVER['REMOTE_ADDR'];
-    echo '<br>';
-    echo 'Your Port - ' . $_SERVER['REMOTE_PORT'];
-    echo '<br>';
-    echo '<br>';
+Route::group(['as' => 'public.api'], function (){
+    Route::get('location', [GeoLocationController::class, 'location'])->name('location');
 });

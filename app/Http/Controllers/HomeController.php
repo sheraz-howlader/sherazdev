@@ -17,11 +17,13 @@ class HomeController extends Controller
 
         Visitor::updateOrCreate([
             'ip'        => $ip_data->ip,
-            'country'   => $ip_data->countryName,
+            'continent_name'   => $ip_data->continent_name,
+            'country'   => $ip_data->country_name,
             'capital'   => $ip_data->capital,
             'city'      => $ip_data->city,
-            'region'    => $ip_data->regionName,
-            'timezone'  => '+6',
+            'timezone'  => $ip_data->timezone,
+            'latitude'  => $ip_data->latitude,
+            'longitude' => $ip_data->longitude,
             'user_agent'=> request()->userAgent(),
         ]);
 

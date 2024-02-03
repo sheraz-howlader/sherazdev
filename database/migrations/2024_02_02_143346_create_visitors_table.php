@@ -11,11 +11,13 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->ipAddress('ip');
+            $table->string('continent_name');
             $table->string('country');
             $table->string('capital');
             $table->string('city');
-            $table->string('region');
             $table->string('timezone');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('user_agent');
             $table->timestamps();
         });

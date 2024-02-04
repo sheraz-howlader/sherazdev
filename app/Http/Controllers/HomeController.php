@@ -13,19 +13,19 @@ class HomeController extends Controller
 {
     public function __invoke()
     {
-        // $ip_data = json_decode(file_get_contents(config('app.url') . '/v1/location'));
+        $ip_data_json   = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $_SERVER['REMOTE_ADDR']));
 
         Visitor::updateOrCreate([
             'user_agent'=> request()->userAgent(),
-        ],[
             'ip'        => $_SERVER['REMOTE_ADDR'],
-//            'continent_name'   => $ip_data->continent_name,
-//            'country'   => $ip_data->country_name,
-//            'capital'   => $ip_data->capital,
-//            'city'      => $ip_data->city,
-//            'timezone'  => $ip_data->timezone,
-//            'latitude'  => $ip_data->latitude,
-//            'longitude' => $ip_data->longitude,
+        ],[
+            'continent_name'   => $ip_data_json->geoplugin_continentName ?? '',
+            'country'   => $ip_data_json->geoplugin_countryName ?? '',
+            'capital'   => $ip_data_json->geoplugin_city ?? '',
+            'city'      => $ip_data_json->geoplugin_regionName ?? '',
+            'timezone'  => $ip_data_json->geoplugin_timezone ?? '',
+            'latitude'  => $ip_data_json->geoplugin_latitude ?? '',
+            'longitude' => $ip_data_json->geoplugin_longitude ?? '',
         ]);
 
         $user       = User::first();

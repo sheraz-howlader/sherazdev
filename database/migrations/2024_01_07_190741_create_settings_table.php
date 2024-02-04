@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('meta_keyword')->nullable();
             $table->string('hero_background')->nullable();
             $table->string('hero_type_writer')->nullable();
+            $table->integer('total_visitors')->default(0);
             $table->timestamps();
         });
     }

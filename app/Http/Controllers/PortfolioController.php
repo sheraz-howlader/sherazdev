@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\FileHandlerService;
 use App\Models\Portfolio;
-use App\Models\Service;
+use App\Models\PortfolioImage;
 use Illuminate\Http\Request;
 
 class PortfolioController extends Controller
@@ -79,6 +79,10 @@ class PortfolioController extends Controller
            'url'            =>  $request->url,
         ]);
 
+        if (isset($request->portfolio_images)) {
+            PortfolioImage::addImages($portfolio->id, $request->portfolio_images);
+        }
+
         return redirect()->route('admin.portfolio.index');
     }
 
@@ -90,5 +94,16 @@ class PortfolioController extends Controller
 
         $portfolio->delete();
         return redirect()->route('admin.portfolio.index');
+    }
+
+    public function portfolioImageDestroy($id)
+    {
+        $image = PortfolioImage::findOrFail($id);
+
+        if (file_exists($image->image)){
+            unlink($image->image);
+        }
+        $image->delete();
+        return response()->json(['status' => 'success', 'msg' => 'Portfolio image delete success']);
     }
 }

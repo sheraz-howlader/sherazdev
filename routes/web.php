@@ -16,6 +16,7 @@ Route::post('mail/send', [MailController::class, 'sendToAdmin'])->name('mail.sen
 Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => 'portal'], function (){
     Route::resource('about-me', AboutMeController::class)->only('create', 'update');
     Route::resource('service', ServiceController::class);
+    Route::get('porfolio/image/delete/{id}', [PortfolioController::class, 'portfolioImageDestroy'])->name('porfolio.image.delete');
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('setting', SettingContrller::class)->only('create', 'update');
 });

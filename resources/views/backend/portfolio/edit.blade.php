@@ -3,6 +3,24 @@
 @push('section_name', 'Portfolio')
 @push('action_name', 'Update')
 
+@push('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"/>
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .close {
+            position: absolute;
+            top: -10px;
+            right: 0;
+            color: #df0e48;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+@endpush
+
 @section('contents')
     <div class="row">
         <form action="{{ route('admin.portfolio.update', $portfolio->id) }}" method="post" enctype="multipart/form-data">
@@ -38,6 +56,18 @@
                                       aria-label="description">{{ $portfolio->description }}</textarea>
                         </div>
 
+                        <div @class(['form-group', 'd-none' => $portfolio->images->count() < 1])>
+                            <label class="form-label"> Image Gallery </label>
+                            <div>
+                                @foreach($portfolio->images as $image)
+                                    <div class="image-container">
+                                        <span class="close" data-id="{{$image->id}}">&times;</span>
+                                        <img src="{{asset($image->image)}}" alt="Additional Image" height="80" width="120" />
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary"> Update</button>
                     </div>
                 </div>
@@ -64,11 +94,14 @@
                                    value="{{ $portfolio->url }}">
                         </div>
                         <div class="form-group">
-                            <label class="form-label"> Thumbnail </label>
-                            <input class="form-control" type="file" name="thumbnail" aria-label="file">
+                            <label class="form-label"> Featured Image </label>
+                            <input class="dropify" type="file" name="thumbnail" data-default-file="{{asset($portfolio->thumbnail)}}">
                         </div>
-                        <div class="form-group text-center mb-4">
-                            <img class="img-thumbnail" src="{{ asset($portfolio->thumbnail) }}" alt="" width="200">
+
+                        <div class="form-group">
+                            <label class="form-label"> Portfolio Gallery </label>
+                            <input class="form-control dropify" type="file" name="portfolio_images[]" aria-label="portfolio_images" multiple="multiple">
+                            <small class="text-danger mt-2">N.B: You can upload multiple image.</small>
                         </div>
                     </div>
                 </div>
@@ -77,3 +110,45 @@
     </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $('.dropify').dropify();
+
+        $('.close').on('click', async function (e){
+            e.preventDefault();
+            let confirmation = await swal.fire({
+                text: "Are you sure want to delete? It can not be undone.",
+                showCancelButton: true,
+                icon: 'warning',
+            });
+            if (confirmation.isConfirmed) {
+                let id = $(this).attr('data-id');
+
+                $.ajax({
+                    dataType: 'json',
+                    type:'get',
+                    url: route('admin.porfolio.image.delete', id),
+                    beforeSend() {
+                        swal.fire({
+                            title: 'Processing your request...',
+                        });
+                        swal.showLoading();
+                    },
+                    success: function (response){
+                        swal.close();
+                        swal.fire({
+                            html: response.msg,
+                            icon: response.status,
+                            confirmButtonText: 'OK'
+                        }).then(function() {
+                            location.reload();
+                        });
+                    }
+                })
+            }
+        })
+    </script>
+@endpush

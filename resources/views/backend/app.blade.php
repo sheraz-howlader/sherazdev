@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icon@0.1.0/css/feather.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.12/iconfont/material-icons.min.css">
+
+    @stack('styles')
 </head>
 
 
@@ -98,6 +100,7 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ asset('backend/js/plugins/popper.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('backend/js/plugins/simplebar.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('backend/js/plugins/bootstrap.min.js') }}"></script>
@@ -106,6 +109,10 @@
 <script type="text/javascript" src="{{ asset('backend/js/plugins/feather.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('backend/js/rocket-loader.min.js') }}"
         data-cf-settings="6c705b80c5ee6d73b3f92550-|49" defer></script>
+
+
+@stack('scripts')
+@routes
 </body>
 
 </html>

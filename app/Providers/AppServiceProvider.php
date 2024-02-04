@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view::composer('frontend.layouts.app',function ($view){
+        view()->composer(['frontend.layouts.app', 'backend.app'], function ($view) {
             $view->with('setting', Setting::first());
         });
     }

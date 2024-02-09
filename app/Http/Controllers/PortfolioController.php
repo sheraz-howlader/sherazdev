@@ -31,10 +31,10 @@ class PortfolioController extends Controller
             'category_id'    =>  ['required'],
             'title'          =>  ['required'],
             'description'    =>  ['required'],
-            'file'           =>  ['required'],
+            'thumbnail'      =>  ['required'],
             'technologies'   =>  ['required'],
         ],[
-            'file.required' => 'The project thumbnail is required.'
+            'thumbnail.required' => 'The project thumbnail is required.'
         ]);
 
         $path = 'frontend/images/projects/';

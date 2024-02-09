@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@push('section_name', 'Portfolio')
+@push('section_name', 'Education')
 @push('action_name', 'List')
 
 @section('contents')
@@ -13,29 +13,30 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th> Category </th>
-                                <th> Title </th>
-                                <th> URL </th>
+                                <th> Department </th>
+                                <th> Institute Name </th>
+                                <th> Session Year</th>
+                                <th> Status </th>
+                                <th> Result </th>
                                 <th class="text-center"> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($portfolios as $portfolio)
+                                @foreach($educations as $education)
                                 <tr>
                                     <td> {{ $loop->iteration }} </td>
-                                    <td> {{ $portfolio->category_id }} </td>
-                                    <td>
-                                        <img class="img-thumbnail" src="{{ asset($portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" width="50">
-                                        {{ $portfolio->title }}
-                                    </td>
-                                    <td> <a href="{{ $portfolio->url }}" target="_blank">{{ $portfolio->url }}</a> </td>
+                                    <td> {{ $education->department }} </td>
+                                    <td> {{ $education->institute_name }} </td>
+                                    <td> {{ $education->session_year }} </td>
+                                    <td> {!! $education->display_status !!} </td>
+                                    <td> {{ $education->result }} </td>
                                     <td class="text-center">
-                                        <a href="{{ route('admin.portfolio.edit', $portfolio->id) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('admin.education.edit', $education->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fas fa-edit"></i>
                                             Edit
                                         </a>
 
-                                        <form action="{{ route('admin.portfolio.destroy', $portfolio->id) }}" method="post" class="d-inline">
+                                        <form action="{{ route('admin.education.destroy', $education->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button type="button" class="btn btn-danger btn-sm delete">

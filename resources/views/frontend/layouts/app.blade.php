@@ -32,12 +32,14 @@
     <!-- Colors Css -->
     <link id="color-switcher" type="text/css" rel="stylesheet" href="#"/>
     <style>
-        /*Disable text selection - */
-        body{
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10 and IE 11 */
-            user-select: none; /* Standard syntax */
-        }
+        @if(!config('app.debug'))
+            /* Disable text selection */
+            body{
+                -webkit-user-select: none; /* Safari */
+                -ms-user-select: none; /* IE 10 and IE 11 */
+                user-select: none; /* Standard syntax */
+            }
+        @endif
     </style>
 
     <!-- Google tag (gtag.js) -->

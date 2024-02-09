@@ -110,7 +110,7 @@
 <script type="text/javascript" src="{{ asset('backend/js/rocket-loader.min.js') }}"
         data-cf-settings="6c705b80c5ee6d73b3f92550-|49" defer></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 @stack('scripts')
 @routes
 </body>

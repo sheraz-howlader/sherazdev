@@ -42,12 +42,38 @@
                             </ul>
                         </li>
 
-                        <li class="pc-item">
-                            <a class="pc-link" href="./dashboard/index-affiliate.html"> Education </a>
+                        <li class="pc-item pc-hasmenu {{ request()->is('portal/education*') ? 'pc-trigger' : '' }}">
+                            <a href="#" class="pc-link"> Education
+                                <span class="pc-arrow">
+                                    <i data-feather="chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="pc-submenu active" style="display: {{ request()->is('portal/education/*') ? 'block' : 'none' }};" >
+                                <li class="pc-item">
+                                    <a class="pc-link" href="{{ route('admin.education.create') }}"> Add </a>
+                                </li>
+                                <li class="pc-item {{ Route::is('admin.education.edit') ? 'active' : '' }}">
+                                    <a class="pc-link" href="{{ route('admin.education.index') }}"> List </a>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="pc-item">
-                            <a class="pc-link" href="./dashboard/index-affiliate.html"> Experience </a>
+
+                        <li class="pc-item pc-hasmenu {{ request()->is('portal/experience*') ? 'pc-trigger' : '' }}">
+                            <a href="#" class="pc-link"> Experience
+                                <span class="pc-arrow">
+                                    <i data-feather="chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="pc-submenu active" style="display: {{ request()->is('portal/experience/*') ? 'block' : 'none' }};" >
+                                <li class="pc-item">
+                                    <a class="pc-link" href="{{ route('admin.experience.create') }}"> Add </a>
+                                </li>
+                                <li class="pc-item {{ Route::is('admin.experience.edit') ? 'active' : '' }}">
+                                    <a class="pc-link" href="{{ route('admin.experience.index') }}"> List </a>
+                                </li>
+                            </ul>
                         </li>
+
                         <li class="pc-item">
                             <a class="pc-link" href="./dashboard/index-affiliate.html"> Skill </a>
                         </li>

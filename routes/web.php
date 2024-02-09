@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutMeController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PortfolioController;
@@ -18,6 +20,8 @@ Route::group(['middleware' => ['auth', 'admin'], 'as' => 'admin.', 'prefix' => '
     Route::resource('service', ServiceController::class);
     Route::get('porfolio/image/delete/{id}', [PortfolioController::class, 'portfolioImageDestroy'])->name('porfolio.image.delete');
     Route::resource('portfolio', PortfolioController::class);
+    Route::resource('education', EducationController::class);
+    Route::resource('experience', ExperienceController::class);
     Route::resource('setting', SettingContrller::class)->only('create', 'update');
 });
 

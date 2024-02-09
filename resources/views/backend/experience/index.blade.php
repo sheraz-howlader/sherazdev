@@ -1,6 +1,6 @@
 @extends('backend.app')
 
-@push('section_name', 'Portfolio')
+@push('section_name', 'Experience')
 @push('action_name', 'List')
 
 @section('contents')
@@ -13,29 +13,28 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th> Category </th>
-                                <th> Title </th>
-                                <th> URL </th>
+                                <th> Designation </th>
+                                <th> Company Name </th>
+                                <th> Timeline </th>
+                                <th> Status </th>
                                 <th class="text-center"> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($portfolios as $portfolio)
+                                @foreach($experiences as $experience)
                                 <tr>
                                     <td> {{ $loop->iteration }} </td>
-                                    <td> {{ $portfolio->category_id }} </td>
-                                    <td>
-                                        <img class="img-thumbnail" src="{{ asset($portfolio->thumbnail) }}" alt="{{ $portfolio->title }}" width="50">
-                                        {{ $portfolio->title }}
-                                    </td>
-                                    <td> <a href="{{ $portfolio->url }}" target="_blank">{{ $portfolio->url }}</a> </td>
+                                    <td> {{ $experience->designation }} </td>
+                                    <td> {{ $experience->company_name }} </td>
+                                    <td> {!! $experience->timeline !!} </td>
+                                    <td> {!! $experience->display_status !!} </td>
                                     <td class="text-center">
-                                        <a href="{{ route('admin.portfolio.edit', $portfolio->id) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('admin.experience.edit', $experience->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fas fa-edit"></i>
                                             Edit
                                         </a>
 
-                                        <form action="{{ route('admin.portfolio.destroy', $portfolio->id) }}" method="post" class="d-inline">
+                                        <form action="{{ route('admin.experience.destroy', $experience->id) }}" method="post" class="d-inline">
                                             @csrf
                                             @method('delete')
                                             <button type="button" class="btn btn-danger btn-sm delete">

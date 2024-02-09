@@ -14,67 +14,28 @@
             <!-- My Education -->
             <div class="col-md-6">
                 <h2 class="text-6 text-white fw-600 mb-4">My Education</h2>
-                <!-- <div class="bg-dark rounded p-4 mb-4">
-                  <p class="badge bg-danger text-2 fw-400">2011 - 2012</p>
-                  <h3 class="text-5 text-white"> Business Studies </h3>
-                  <p class="text-primary"> Chhitka Mohsin Secondary School, Barishal </p> -->
-                <!-- <p class="text-white-50 mb-0"> Secondary School Certificate (S.S.C) </p> -->
-                <!-- </div> -->
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400">2013 - 2014</p>
-                    <h3 class="text-5 text-white"> Business Studies </h3>
-                    <p class="text-primary"> Kachipara Abdur Rasid Mia Degree College, Barishal </p>
-                    <!-- <p class="text-white-50 mb-0"> Higher Secondary Certificate (H.S.C) </p> -->
-                </div>
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400">2016 - 2017</p>
-                    <h3 class="text-5 text-white"> Bachelor Degree </h3>
-                    <p class="text-primary">Kabi Nazrul Govt. College, Dhaka</p>
-                    <!-- <p class="text-white-50 mb-0"> Bachelor of Arts (B.A) </p> -->
-                </div>
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400">2022 - 2023</p>
-                    <h3 class="text-5 text-white"> Master Degree </h3>
-                    <p class="text-primary">Kabi Nazrul Govt. College, Dhaka</p>
-                </div>
+                @foreach($educations as $education)
+                    <div class="bg-dark rounded p-4 mb-4">
+                        <p class="badge bg-danger text-2 fw-400"> {{ $education->session_year }} </p>
+                        <h3 class="text-5 text-white"> {{ $education->department }} </h3>
+                        <p class="text-primary"> {{ $education->institute_name }} </p>
+                    </div>
+                @endforeach
             </div>
 
             <!-- My Experience -->
             <div class="col-md-6">
                 <h2 class="text-6 text-white fw-600 mb-4">My Experience</h2>
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400"> August 2017 - November 2017 </p>
-                    <h3 class="text-5 text-white"> S.E.O </h3>
-                    <p class="text-primary"> Quantic IT Firm </p>
-                    <p class="text-white-50 mb-0">
-                        Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-                        iriure.
-                    </p>
-                </div>
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400"> February 2019 to July 2020 </p>
-                    <h3 class="text-5 text-white"> Frontend Developer </h3>
-                    <p class="text-primary"> Reflecto-Pro </p>
-                    <p class="text-white-50 mb-0">
-                        Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim
-                        iriure.
-                    </p>
-                </div>
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400"> October 2020 to December 2022 </p>
-                    <h3 class="text-5 text-white"> frontend Developer </h3>
-                    <p class="text-primary"> Octavia Digital </p>
-                    <p class="text-white-50 mb-0">Lisque persius interesset his et, in quot quidam persequeris
-                        vim, ad mea essent possim iriure.</p>
-                </div>
-                <div class="bg-dark rounded p-4 mb-4">
-                    <p class="badge bg-danger text-2 fw-400"> March 2023 to <span class="badge bg-primary">Present</span>
-                    </p>
-                    <h3 class="text-5 text-white"> Full Stack Developer </h3>
-                    <p class="text-primary"> Flick Media Ltd. </p>
-                    <p class="text-white-50 mb-0">Lisque persius interesset his et, in quot quidam persequeris
-                        vim, ad mea essent possim iriure.</p>
-                </div>
+                @foreach($experiences as $experience)
+                    <div class="bg-dark rounded p-4 mb-4">
+                        <p class="badge bg-danger text-2 fw-400"> {!! $experience->timeline !!} </p>
+                        <h3 class="text-5 text-white"> {{ $experience->designation }} </h3>
+                        <p class="text-primary"> {{ $experience->company_name }} </p>
+                        <p class="text-white-50 mb-0">
+                            {{ $experience->description }}
+                        </p>
+                    </div>
+                @endforeach
             </div>
         </div>
         <!-- My Skills -->

@@ -8,22 +8,54 @@ WORKDIR /var/www/html
 RUN a2enmod rewrite
 
 # Update package list and install required libraries
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     libicu-dev \
     libmariadb-dev \
-    unzip \
-    zip \
+    libmariadb-dev-compat \
+    libxml2-dev \
+    libzip-dev \
     zlib1g-dev \
+    libcurl4-openssl-dev \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
-    libjpeg62-turbo-dev
+    libjpeg62-turbo-dev \
+    libonig-dev \
+    unzip \
+    zip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer from the official Composer image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install required PHP extensions
-RUN docker-php-ext-install gettext intl pdo_mysql
+# Install gettext
+RUN docker-php-ext-install gettext
+
+# Install intl
+RUN docker-php-ext-install intl
+
+# Install pdo_mysql
+RUN docker-php-ext-install pdo_mysql
+
+# Install mysqli
+RUN docker-php-ext-install mysqli
+
+# Install xml
+RUN docker-php-ext-install xml
+
+# Install mbstring
+RUN docker-php-ext-install mbstring
+
+# Install curl
+RUN docker-php-ext-install curl
+
+# Install zip
+RUN docker-php-ext-install zip
+
+# Install bcmath
+RUN docker-php-ext-install bcmath
+
 
 # Configure and install GD with support for JPEG and FreeType
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \

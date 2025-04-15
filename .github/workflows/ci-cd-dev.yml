@@ -6,7 +6,7 @@ on:
 jobs:
   web-deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Get the latest code
         uses: actions/checkout@v3

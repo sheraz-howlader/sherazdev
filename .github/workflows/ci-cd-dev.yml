@@ -2,7 +2,7 @@ name: sherazdev.com
 on:
   push:
     branches:
-      - master
+      - test-ci-cd
 jobs:
   web-deploy:
     name: Deploy

@@ -1,4 +1,4 @@
-name: sherazdev.com
+name: CI/CD
 on:
   push:
     branches:
@@ -27,3 +27,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          passive: true

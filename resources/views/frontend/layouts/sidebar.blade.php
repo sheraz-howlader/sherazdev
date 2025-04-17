@@ -39,7 +39,7 @@
                 </li>
                 <li class="social-icons-github">
                     <a data-bs-toggle="tooltip" title="GitHub" data-bs-placement="top"
-                       href="https://github.com/sherazHowlader" target="_blank">
+                       href="https://github.com/sheraz-howlader" target="_blank">
                         <i class="fab fa-github"></i>
                     </a>
                 </li>

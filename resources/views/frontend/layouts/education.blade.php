@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="{{ asset('frontend/') }}/sheraz-howlader.pdf"
+                <a href="{{ asset('frontend/sheraz-howlader.pdf') }}"
                    class="btn btn-outline-secondary rounded-pill shadow-none"
                    target="_blank">Download CV
                     <span class="ms-1">

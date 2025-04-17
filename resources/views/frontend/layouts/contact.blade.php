@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="social-icons-github">
-                        <a data-bs-toggle="tooltip" href="https://github.com/sherazHowlader" target="_blank"
+                        <a data-bs-toggle="tooltip" href="https://github.com/sheraz-howlader" target="_blank"
                            title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>

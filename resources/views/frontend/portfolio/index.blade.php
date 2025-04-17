@@ -1,6 +1,6 @@
 <div class="container ajax-container bg-dark-1">
     <h2 class="text-6 font-weight-600 text-center text-white mb-4"> {{ $portfolio->title }} </h2>
-    <div class="row g-4">
+    <div class="row g-4 align-items-center">
         <div class="col-sm-7">
             <div class="owl-carousel owl-theme owl-light single-slideshow" data-autoplay="true" data-loop="true"
                 data-nav="true" data-items="1">

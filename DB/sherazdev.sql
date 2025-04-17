@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2025 at 06:55 PM
+-- Generation Time: Apr 17, 2025 at 07:46 PM
 -- Server version: 11.7.2-MariaDB
 -- PHP Version: 8.4.5
 
@@ -41,6 +41,33 @@ CREATE TABLE `about_mes` (
 
 INSERT INTO `about_mes` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'Web Developer', 'Welcome to sherazdev - Your trusted partner in innovative web solutions. Currently, I work as a Full Stack Developer at FLICK MEDIA LTD, I specialize in JavaScript, Vue.js, PHP, and Laravel to create dynamic web applications.', '2024-01-28 09:34:13', '2024-01-31 04:51:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `slug`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'LMS', 'lms', 1, '2025-04-17 13:24:46', '2025-04-17 13:24:46'),
+(2, 'HRM', 'hrm', 1, '2025-04-17 13:24:46', '2025-04-17 13:24:46'),
+(3, 'ERP', 'erp', 0, '2025-04-17 13:24:46', '2025-04-17 13:24:46'),
+(4, 'CRM', 'crm', 1, '2025-04-17 13:24:46', '2025-04-17 13:24:46'),
+(5, 'WordPress', 'wordpress', 0, '2025-04-17 13:24:46', '2025-04-17 13:24:46'),
+(6, 'E-commerce', 'ecommerce', 1, '2025-04-17 13:24:46', '2025-04-17 13:24:46');
 
 -- --------------------------------------------------------
 
@@ -204,12 +231,12 @@ CREATE TABLE `portfolios` (
 --
 
 INSERT INTO `portfolios` (`id`, `category_id`, `title`, `thumbnail`, `description`, `client_name`, `industry_name`, `technologies`, `delivery_date`, `url`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Doctor All Khulna', 'frontend/images/projects/6800af26ca5c5.jpg', 'This is a small and simple website to find any type of doctor in Khulna division.', 'Arafat Hossain', 'Personal Business', 'Vanila JS, AJAX, PHP, Laravel', '2023-03-31', 'https://doctorallkhulna.com', '2024-01-28 09:34:13', '2025-04-17 01:35:02'),
-(2, 1, 'FnM It', 'frontend/images/projects/6800af9dbc4f3.jpg', 'It is an e-commerce based website. There are two types of products physical and digital products. There are also user forums and micro work. So, any customer can earn money from this website. Also there have affiliate programm.', 'Fahim Ashraf', 'FnM It', 'Vanila JS, AJAX, PHP, Laravel', '2024-04-30', 'https://fnmit.com', '2024-01-28 09:34:13', '2025-04-17 01:37:01'),
+(1, 4, 'Doctor All Khulna', 'frontend/images/projects/6800af26ca5c5.jpg', 'This is a small and simple website to find any type of doctor in Khulna division.', 'Arafat Hossain', 'Personal Business', 'Vanila JS, AJAX, PHP, Laravel', '2023-03-31', 'https://doctorallkhulna.com', '2024-01-28 09:34:13', '2025-04-17 01:35:02'),
+(2, 6, 'FnM It', 'frontend/images/projects/6800af9dbc4f3.jpg', 'It is an e-commerce based website. There are two types of products physical and digital products. There are also user forums and micro work. So, any customer can earn money from this website. Also there have affiliate programm.', 'Fahim Ashraf', 'FnM It', 'Vanila JS, AJAX, PHP, Laravel', '2024-04-30', 'https://fnmit.com', '2024-01-28 09:34:13', '2025-04-17 01:37:01'),
 (3, 1, 'Genius Class', 'frontend/images/projects/6800ae132c4f2.jpg', 'This is LMS software', 'Samson Chisi', 'Genius Class', 'Vanila JS, Vue.js, PHP, Laravel, MySQL', NULL, 'https://www.geniusclass.co.uk', '2024-07-04 01:45:12', '2025-04-17 01:30:27'),
-(4, 1, 'Apasen HRM', 'frontend/images/projects/6800ac314e403.jpg', 'This is HRM software', 'Ather Khan', 'Apasen HRM', 'JS, Laravel, MySQL', '2024-03-30', 'https://apasenhrm.co.uk', '2024-07-04 01:45:12', '2025-04-17 01:22:25'),
+(4, 2, 'Apasen HRM', 'frontend/images/projects/6800ac314e403.jpg', 'This is HRM software', 'Ather Khan', 'Apasen HRM', 'JS, Laravel, MySQL', '2024-03-30', 'https://apasenhrm.co.uk', '2024-07-04 01:45:12', '2025-04-17 01:22:25'),
 (5, 1, 'ePrap', 'frontend/images/projects/680146f763cb5.jpg', 'This is LMS software', 'Samson Chisi', 'ePrap', 'JS, CodeIgniter, MySQL', NULL, 'https://eprap.com', '2024-07-04 01:45:12', '2025-04-17 12:22:47'),
-(6, 1, 'Lite Hoster', 'frontend/images/projects/6801485000ca8.jpg', 'Domain Hosting Provider Company', 'Sheraz Howlader', 'ePrap', 'Vanila JS, AJAX, PHP, Laravel', NULL, 'https://litehoster.com', '2024-07-04 01:45:12', '2025-04-17 12:28:32');
+(6, 6, 'Lite Hoster', 'frontend/images/projects/6801485000ca8.jpg', 'Domain Hosting Provider Company', 'Sheraz Howlader', 'ePrap', 'Vanila JS, AJAX, PHP, Laravel', NULL, 'https://litehoster.com', '2024-07-04 01:45:12', '2025-04-17 12:28:32');
 
 -- --------------------------------------------------------
 
@@ -386,6 +413,12 @@ ALTER TABLE `about_mes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `education`
 --
 ALTER TABLE `education`
@@ -481,6 +514,12 @@ ALTER TABLE `about_mes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `education`
 --
 ALTER TABLE `education`
@@ -544,7 +583,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

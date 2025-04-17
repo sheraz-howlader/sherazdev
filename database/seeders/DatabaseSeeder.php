@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AboutMeSeeder::class,
             ServiceSeeder::class,
-            PortfolioSeeder::class
+            PortfolioSeeder::class,
+            CategorySeeder::class
         ]);
     }
 }

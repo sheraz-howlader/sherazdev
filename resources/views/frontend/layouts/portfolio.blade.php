@@ -13,15 +13,19 @@
         <!-- Filter Menu -->
         <ul class="portfolio-menu nav nav-tabs nav-light justify-content-center border-bottom-0 mb-5">
             <li class="nav-item"><a data-filter="*" class="nav-link active" href="">All</a></li>
-            <li class="nav-item"><a data-filter=".design" href="" class="nav-link">Design</a></li>
-            <li class="nav-item"><a data-filter=".brand" href="" class="nav-link">Brand</a></li>
-            <li class="nav-item"><a data-filter=".photos" href="" class="nav-link">Photos</a></li>
+
+            @foreach($categories as $category)
+                <li class="nav-item">
+                    <a data-filter=".{{ $category->slug }}" href="" class="nav-link"> {{ $category->name }} </a>
+                </li>
+            @endforeach
         </ul>
+
         <!-- Filter Menu end -->
         <div class="portfolio popup-ajax-gallery">
             <div class="row portfolio-filter g-4">
                 @foreach($portfolios as $portfolio)
-                    <div class="col-sm-6 col-lg-4 brand {{ $portfolio->category_id }}">
+                    <div class="col-sm-6 col-lg-4 {{ $portfolio->category->slug }}">
                         <div class="portfolio-box rounded">
                             <div class="portfolio-img rounded">
                                 <img class="img-fluid d-block" src="{{ asset($portfolio->thumbnail) }}" alt="{{ $portfolio->title }}">

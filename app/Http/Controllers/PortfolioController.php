@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Services\FileHandlerService;
+use App\Models\Category;
 use App\Models\Portfolio;
 use App\Models\PortfolioImage;
 use Illuminate\Http\Request;
@@ -17,12 +18,14 @@ class PortfolioController extends Controller
 
     public function edit(Portfolio $portfolio)
     {
-        return view('backend.portfolio.edit', compact('portfolio'));
+        $categories = Category::all();
+        return view('backend.portfolio.edit', compact('portfolio', 'categories'));
     }
 
     public function create()
     {
-        return view('backend.portfolio.create');
+        $categories = Category::all();
+        return view('backend.portfolio.create', compact('categories'));
     }
 
     public function store(Request $request)

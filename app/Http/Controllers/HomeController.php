@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AboutMe;
+use App\Models\Category;
 use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Portfolio;
@@ -36,8 +37,9 @@ class HomeController extends Controller
         $educations  = Education::where('status', true)->get();
         $experiences = Experience::where('status', true)->get();
         $portfolios = Portfolio::all();
+        $categories = Category::whereStatus(true)->get();
 
-        return view('frontend.layouts.app', compact('user', 'about_me', 'services','educations','experiences','portfolios'));
+        return view('frontend.layouts.app', compact('user', 'about_me', 'services','educations','experiences','portfolios', 'categories'));
     }
 
     public function portfolioShow($id)

@@ -49,7 +49,9 @@
                                 <label class="form-label required"> Category </label>
                                 <select name="category_id" aria-label="category_id" class="form-control">
                                     <option disabled selected>--Select Category--</option>
-                                    <option value="1" selected> Test</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->name }}"> {{ $category->name }} </option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

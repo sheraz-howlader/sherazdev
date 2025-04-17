@@ -17,9 +17,10 @@ class UserSeeder extends Seeder
            'dob'            => "22-12-1997",
            'phone'          => '+8801728692643',
            'telephone'      => '+8809638555680',
-           'email'          => 'mdsherazhowlader@gmail.com',
+           'email'          => 'admin@sherazdev.com.bd',
            'address'        => "H - 248, R - 08, <br>Phaze - 2, Sonadanga. <br>Khulna - 9100 </p>",
            'password'       => bcrypt('1781510139680'),
+           'resume'         => 'frontend/sheraz-howlader.pdf',
        ]);
     }
 }

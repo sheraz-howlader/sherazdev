@@ -70,7 +70,7 @@
 
                 <h2 class="mb-3 text-5 text-white text-uppercase text-center text-md-start"> Send me a note </h2>
 
-                <form id="contact-form" class="form-dark" action="{{ route('mail.send') }}" method="post">
+                <form id="contact-form" class="form-dark" method="post">
                     @csrf
                     <div class="row g-4">
                         <div class="col-xl-6">
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <p class="text-center mt-4 mb-0">
-                        <button id="submit-btn" class="btn btn-primary rounded-pill d-inline-flex" type="submit">
+                        <button id="submit-btn" class="btn btn-primary rounded-pill d-inline-flex" type="button">
                             Send Message
                         </button>
                     </p>
@@ -94,3 +94,39 @@
         </div>
     </div>
 </section>
+
+@push('script')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $('#submit-btn').on('click', function (){
+            let formData = new FormData($('#contact-form')[0]);
+
+            $.ajax({
+                data: formData,
+                type: "post",
+                dataType: "json",
+                url: route('mail.send'),
+                cache: false,
+                processData: false,
+                contentType: false,
+                beforeSend() {
+                    swal.fire({
+                        title: 'Processing your request...',
+                    });
+                    swal.showLoading();
+                },
+                success: function (response) {
+                    swal.fire({
+                        html: 'Message successfully delivered to the developer.',
+                        icon: response.status,
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false
+                    }).then(function() {
+                        $('#contact-form')[0].reset();
+                    });
+                }
+            })
+        })
+    </script>
+@endpush

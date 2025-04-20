@@ -25,6 +25,6 @@ class MailController extends Controller
         ];
 
         $this->emailSend($data);
-        return redirect()->back();
+        return response()->json(['status' => 'success']);
     }
 }

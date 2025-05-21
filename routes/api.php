@@ -25,13 +25,6 @@ Route::group(['as' => 'public.api'], function (){
 
 
 Route::post('/provision', function (Request $request, WHMService $whm) {
-    $request->validate([
-        'domain' => 'required|string',
-        'username' => 'required|string|min:6|max:8',
-        'password' => 'required|string|min:8',
-        'plan' => 'required|string',
-    ]);
-
     $response = $whm->createAccount(
         $request->domain,
         $request->username,

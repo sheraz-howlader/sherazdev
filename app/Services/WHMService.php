@@ -12,14 +12,14 @@ class WHMService
     public function __construct()
     {
         $this->host = "https://ssdnvme.hostarchives.com:2087";
-        $this->token = "8d736c4073936113cca524e9f45f4b3fd120a32d";
+        $this->token = "WHZ0GC4N2TVSX51UEHZUG9CVUPKW7833";
     }
 
 
     public function createAccount($domain, $username, $password, $plan)
     {
         $response = Http::withHeaders([
-            'Authorization' => 'whm root:' . $this->token,
+            'Authorization' => 'whm litehoster:' . $this->token,
         ])->get("{$this->host}/json-api/createacct", [
             'api.version' => 1,
             'username' => $username,

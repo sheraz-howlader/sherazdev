@@ -24,13 +24,60 @@ Route::group(['as' => 'public.api'], function (){
 });
 
 
-Route::post('/provision', function (Request $request, WHMService $whm) {
+Route::post('/create-account', function (Request $request, WHMService $whm) {
+    // $request->validate([
+    //     'domain' => 'required|string',
+    //     'username' => 'required|string|min:6|max:8',
+    //     'password' => 'required|string|min:8',
+    //     'plan' => 'required|string',
+    // ]);
+
     $response = $whm->createAccount(
         $request->domain,
         $request->username,
         $request->password,
         $request->plan
     );
+
+    return response()->json($response);
+});
+
+Route::post('/change-package', function (Request $request, WHMService $whm) {
+    // $request->validate([
+    //     'domain' => 'required|string',
+    //     'username' => 'required|string|min:6|max:8',
+    //     'password' => 'required|string|min:8',
+    //     'plan' => 'required|string',
+    // ]);
+
+    $response = $whm->changePackage(
+        $request->username,
+        $request->plan       
+    );
+
+    return response()->json($response);
+});
+
+Route::post('/create-package', function (Request $request, WHMService $whm) {
+    // $validated = $request->validate([
+    //     'name' => 'required|string', //package name
+    //     'quota' => 'required|integer', //disk quota
+    //     'bwlimit' => 'required|integer', //bandwidth limit
+    //     'maxftp' => 'nullable|integer', //max ftp accounts
+    //     'maxsql' => 'nullable|integer', //max sql databases
+    //     'maxpop' => 'nullable|integer', //max email accounts
+    //     'maxsub' => 'nullable|integer', //max subdomains
+    // ]);
+
+    $response = $whm->createPackage([
+        'name' => $request->name,
+        'quota' => $request->quota,
+        'bwlimit' => $request->bwlimit,
+        'maxftp' => $request->maxftp,
+        'maxsql' => $request->maxsql,
+        'maxpop' => $request->maxpop,
+        'maxsub' => $request->maxsub,
+    ]);
 
     return response()->json($response);
 });

@@ -55,6 +55,18 @@ class WHMService
         return $response->json();
     }
 
+       public function deleteAccount($username,)
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'whm litehoster:' . $this->token,
+        ])->get("{$this->host}/json-api/removeacct", [
+            'api.version' => 1,
+            'username' => $username,
+        ]);
+
+        return $response->json();
+    }
+
 
     // 📦 Package Management
     // ✅ Create package    addpkg      /json-api/addpkg?api.version=1

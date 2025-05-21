@@ -58,6 +58,18 @@ Route::post('/change-package', function (Request $request, WHMService $whm) {
     return response()->json($response);
 });
 
+Route::post('/delete-account', function (Request $request, WHMService $whm) {
+    // $request->validate([
+    //     'username' => 'required|string|min:6|max:8',
+    // ]);
+
+    $response = $whm->deleteAccount(
+        $request->username
+    );
+
+    return response()->json($response);
+});
+
 Route::post('/create-package', function (Request $request, WHMService $whm) {
     // $validated = $request->validate([
     //     'name' => 'required|string', //package name

@@ -1,14 +1,17 @@
+version: "3.9"
+
 services:
-  sherazdev:
+  web:
+    image: sherazhowlader/sherazdev-sherazdev:latest
     container_name: sherazdev
-    build: .
     volumes:
       - ./:/var/www/html
     ports:
-      - 9000:80
+      - "9000:80"
 
   mariadb:
     image: mysql:latest
+    container_name: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: sherazdev
